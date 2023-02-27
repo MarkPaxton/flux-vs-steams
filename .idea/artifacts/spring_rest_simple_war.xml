@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="spring-rest-simple:war">
+    <output-path>$PROJECT_DIR$/spring-samples/spring-rest-simple/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>spring-rest-simple</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="spring-rest-simple.war">
+      <element id="artifact" artifact-name="spring-rest-simple:war exploded" />
+    </root>
+  </artifact>
+</component>
