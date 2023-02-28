@@ -17,7 +17,7 @@ public class SequentialStreamProcessing implements Processing {
     @Override
     public void start() {
        final var startTime = System.nanoTime();
-        final var totalPurchases = getIds().stream()
+       final var totalPurchases = getIds().stream()
                 .map(serviceInvoker::invoke)
                 .mapToDouble(Client::purchases).sum();
 

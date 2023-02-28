@@ -23,10 +23,10 @@ public class AsyncStreamExecutorProcessing implements Processing {
     @Override
     public void start() {
         final var startTime = System.nanoTime();
+
         final var futureRequests = getIds().stream()
                 .map(id -> CompletableFuture.supplyAsync(() -> serviceInvoker.invoke(id), executorService))
                 .toList();
-
         final var totalPurchases = futureRequests.stream()
                 .map(CompletableFuture::join)
                 .mapToDouble(Client::purchases).sum();

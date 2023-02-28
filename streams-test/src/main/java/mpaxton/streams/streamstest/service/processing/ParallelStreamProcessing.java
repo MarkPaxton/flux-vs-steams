@@ -18,6 +18,7 @@ public class ParallelStreamProcessing implements Processing {
     @Override
     public void start() {
         final var startTime = System.nanoTime();
+
         final var totalPurchases = getIds().parallelStream()
                 .map(serviceInvoker::invoke)
                 .mapToDouble(Client::purchases).sum();

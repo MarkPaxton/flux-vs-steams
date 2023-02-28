@@ -22,7 +22,6 @@ public class AsyncStreamProcessing implements Processing {
         final var futureRequests = getIds().stream()
                 .map(id -> CompletableFuture.supplyAsync(() -> serviceInvoker.invoke(id)))
                 .toList();
-
         final var totalPurchases = futureRequests.stream()
                 .map(CompletableFuture::join)
                 .mapToDouble(Client::purchases).sum();
